@@ -26,16 +26,22 @@ try and use a Kinect
 Keys
 ----
 'q' - Increase temperature, reducing ice caps and raising water level.
+
 'a' - Decrease temperature, increasing ice caps and reducing water level.
+
 'h' - Toggles height mode, which gets rid of the plants and replaces the background with a greyscale heightmap and some rough contours.
+
 't' - Toggles tree mode, which seems a bit broken at the moment.
 
 Credits
 -------
 
 Most software development was done by Phil Murgatroyd, although the trees were based on Micheál Butler's work.
+
 This software relies heavily on Angelos Barmpoutis and the University of Florida Digital Worlds Institute's J4K Library (https://research.dwi.ufl.edu/projects/ufdw/j4k/)
 so a huge thanks to them for putting the work in.
+
 Thanks to Professor Kai Bongs at the University of Birmingham for generously providing a projector.
+
 This software developed out of the GG-TOP project at Birmingham, and was completed thanks to the ERC-funded 'Europe's Lost Frontiers' project and the
 School of Archaeological and Forensic Science at the University of Bradford.
