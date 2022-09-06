@@ -25,9 +25,9 @@ try and use a Kinect
 
 Keys
 ----
-'q' - Increase temperature, reducing ice caps and raising water level
-'a' - Decrease temperature, increasing ice caps and reducing water level
-'h' - Toggles height mode, which gets rid of the plants and replaces the background with a greyscale heightmap and some rough contours
+'q' - Increase temperature, reducing ice caps and raising water level.
+'a' - Decrease temperature, increasing ice caps and reducing water level.
+'h' - Toggles height mode, which gets rid of the plants and replaces the background with a greyscale heightmap and some rough contours.
 't' - Toggles tree mode, which seems a bit broken at the moment.
 
 Credits
