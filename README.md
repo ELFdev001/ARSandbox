@@ -5,10 +5,15 @@ Requirements
 ------------
 
 Windows
+
 Any Microsoft Kinect
+
 A box of sand
+
 A short throw LCD projector
+
 A means of suspending the projector and Kinect over the sandbox
+
 Eclipse
 
 Instructions for use
