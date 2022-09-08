@@ -21,12 +21,13 @@ Instructions for use
 
 1. Create an AR sandbox by using the same method as directed for [Oliver Kreylos' sandbox](https://web.cs.ucdavis.edu/~okreylos/ResDev/SARndbox/index.html).
 2. Download and install the Eclipse IDE for Java development from [here](https://www.eclipse.org/).
-3. Download the [ELFDynamicSystem repository](https://github.com/ELFdev001/ELFDynamicSystem).
-4. Create a new Java project in Eclipse and point it towards the ELFDynamicSystem directory.
-5. Change the directory in BDmain to be the directory in which the default landscape image (BDlandscape002.jpg) is found.
-6. Make sure the TESTING boolean in BDmain is set to true if you want to not connect to a Kinect (for instance if you don't have one), or false if you want to
+3. Download and install the [Kinect Windows SDK](https://docs.microsoft.com/en-us/windows/apps/design/devices/kinect-for-windows).
+4. Download the [ELFDynamicSystem repository](https://github.com/ELFdev001/ELFDynamicSystem).
+5. Create a new Java project in Eclipse and point it towards the ELFDynamicSystem directory.
+6. Change the directory in BDmain to be the directory in which the default landscape image (BDlandscape002.jpg) is found.
+7. Make sure the TESTING boolean in BDmain is set to true if you want to not connect to a Kinect (for instance if you don't have one), or false if you want to
 try and use a Kinect
-7. Run BDmain
+8. Run BDmain
 
 Keys
 ----
@@ -37,6 +38,10 @@ Keys
 'h' - Toggles height mode, which gets rid of the plants and replaces the background with a greyscale heightmap and some rough contours.
 
 't' - Toggles tree mode, which seems a bit broken at the moment.
+
+Hints
+-----
+Everything works better if the resolution of the PC is set to 1280x960. The sandbox has a 4:3 aspect ratio to match the Kinect and the projector so it's easier if the PC does too.
 
 Credits
 -------
