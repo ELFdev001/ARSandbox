@@ -41,7 +41,9 @@ Keys
 
 Hints
 -----
-Everything works better if the resolution of the PC is set to 1280x960. The sandbox has a 4:3 aspect ratio to match the Kinect and the projector so it's easier if the PC does too.
+Everything works better if the resolution of the PC is set to 1280x960. The sandbox has a 4:3 aspect ratio to match the Kinect and the projector so it's easier if the PC does too. Other resolutions can be adjusted by alterind the CELLWIDTH and CELLHEIGHT values in BDframe. By default they are both set to 4 as the default Kinect resolution is 320x240. This uses a 4x4 block pixels for every cell of the 320x240 environment, giving a total size of 1280x960. If you need to set the screen resoltuion to 1280 x 720 you would change CELLHEIGHT to 3.
+
+This software does not use the complex calibration process of Oliver Kreylos' software and relies on adjusting the projector and Kinect to get everything close enough. I've found that it's relatively easy to do this to the extent that it doesn't ruin the experience for the user.
 
 Credits
 -------
