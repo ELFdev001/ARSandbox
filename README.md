@@ -19,15 +19,20 @@ Eclipse
 Instructions for use
 --------------------
 
+These instructions cover how I run the software, which is through Eclipse. This is less elegant than creating an executable file but I often end up changing variables between simulation runs so I find it easiest.
+
 1. Create an AR sandbox by using the same method as directed for [Oliver Kreylos' sandbox](https://web.cs.ucdavis.edu/~okreylos/ResDev/SARndbox/index.html).
 2. Download and install the Eclipse IDE for Java development from [here](https://www.eclipse.org/).
-3. Download and install the [Kinect Windows SDK](https://docs.microsoft.com/en-us/windows/apps/design/devices/kinect-for-windows).
-4. Download the [ELFDynamicSystem repository](https://github.com/ELFdev001/ELFDynamicSystem).
-5. Create a new Java project in Eclipse and point it towards the ELFDynamicSystem directory.
-6. Change the directory in BDmain to be the directory in which the default landscape image (BDlandscape002.jpg) is found.
-7. Make sure the TESTING boolean in BDmain is set to true if you want to not connect to a Kinect (for instance if you don't have one), or false if you want to
+3. Download and install a Java runtime Environment from [here](https://www.java.com/en/download/manual.jsp).
+4. Download and install the [Kinect Windows SDK](https://docs.microsoft.com/en-us/windows/apps/design/devices/kinect-for-windows).
+5. Download the [ELFDynamicSystem repository](https://github.com/ELFdev001/ELFDynamicSystem).
+6. Create a new Java project in Eclipse and point it towards the ELFDynamicSystem directory.
+7. Change the directory in BDmain to be the directory in which the default landscape image (BDlandscape002.jpg) is found.
+8. Make sure the TESTING boolean in BDmain is set to true if you want to not connect to a Kinect (for instance if you don't have one), or false if you want to
 try and use a Kinect
-8. Run BDmain
+9. Run BDmain
+
+Obviously skip any step that involves installing software you already have. I've found no problems with compatibility with the JRE so far. The main potential for problems seems to be in the installation of the Kinect drivers as part of the Kinect Windows SDK. Follow the instructions here carefully because I've had problems when plugging the Kinect in at the wrong time.
 
 Keys
 ----
@@ -37,7 +42,7 @@ Keys
 
 'h' - Toggles height mode, which gets rid of the plants and replaces the background with a greyscale heightmap and some rough contours.
 
-'t' - Toggles tree mode, which seems a bit broken at the moment.
+Alt-F4 - Closes the simulation and kicks you back to Eclipse 
 
 Hints
 -----
@@ -45,10 +50,12 @@ Everything works better if the resolution of the PC is set to 1280x960. The sand
 
 This software does not use the complex calibration process of Oliver Kreylos' software and relies on adjusting the projector and Kinect to get everything close enough. I've found that it's relatively easy to do this to the extent that it doesn't ruin the experience for the user.
 
+The software only runs for about 15 minutes before self-quitting. I forget why this was ever in the software but I found that it is useful in public settings as some users, especially children, can monopolise the sandbox almost indefinitely. With a natural break every 15 minutes they tend to move onto something else at that point.
+
 Credits
 -------
 
-Most software development was done by Phil Murgatroyd, although the trees were based on Micheál Butler's work.
+Software development was done by Phil Murgatroyd, over the example framework created by Angelos Barmpoutis.
 
 This software relies heavily on Angelos Barmpoutis and the University of Florida Digital Worlds Institute's J4K Library (https://research.dwi.ufl.edu/projects/ufdw/j4k/)
 so a huge thanks to them for putting the work in.
