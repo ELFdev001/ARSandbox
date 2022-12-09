@@ -19,9 +19,6 @@ public class BDenvironment {
 	private static final int DEERSPAWNCHANCE = 1;
 	private static final int MAXAGENTS = 1000;
 	private static final int MAXDEERS = 1000;
-	private static final int MAXTREES1 = 2000;
-	private static final int MAXTREES2 = 2000;
-	private static final int MAXTREES3 = 2000;
 
 	
 	private static BDlocation[][] cells;
@@ -29,20 +26,14 @@ public class BDenvironment {
 //	private static BDdeer[] deerlist;
 	List<BDagent> agentlist = new ArrayList<BDagent>();
 	List<BDdeer> deerlist = new ArrayList<BDdeer>();
-	List<BDtree1> treelist1 = new ArrayList<BDtree1>();
-	List<BDtree2> treelist2 = new ArrayList<BDtree2>();
-	List<BDtree3> treelist3 = new ArrayList<BDtree3>();
 	List<BDagent> newagentlist = new ArrayList<BDagent>();
 	List<BDdeer> newdeerlist = new ArrayList<BDdeer>();
-	List<BDtree1> newtreelist1 = new ArrayList<BDtree1>();
-	List<BDtree2> newtreelist2 = new ArrayList<BDtree2>();
-	List<BDtree3> newtreelist3 = new ArrayList<BDtree3>();
 
 	
-	private int agents, deers, trees1, trees2, trees3, widthX, heightY, size;
+	private int agents, deers, widthX, heightY, size;
 	private static boolean testing, heightmode;
 
-	public BDenvironment(int pWidth, int pHeight, int pAgents, int pDeer, int pTrees1, int pTrees2, int pTrees3, boolean pTesting) {
+	public BDenvironment(int pWidth, int pHeight, int pAgents, int pDeer, boolean pTesting) {
 		widthX = pWidth;
 		heightY = pHeight;
 		testing = pTesting;
@@ -56,9 +47,6 @@ public class BDenvironment {
 
 		agents = pAgents;
 		deers = pDeer;
-		trees1 = pTrees1;
-		trees2 = pTrees2;
-		trees3 = pTrees3;
 
 		for (int x = 0; x < agents; x++) {
 			agentlist.add(new BDagent(pickX(), pickY()));
@@ -68,15 +56,6 @@ public class BDenvironment {
 			deerlist.add(new BDdeer(pickX(), pickY()));
 		}
 
-		for (int x = 0; x < trees1; x++) {
-			treelist1.add(new BDtree1(pickX(), pickY(), pickSize(), pickAge()));
-		}
-		for (int x = 0; x < trees2; x++) {
-			treelist2.add(new BDtree2(pickX(), pickY(), pickSize(), pickAge()));
-		}
-		for (int x = 0; x < trees3; x++) {
-			treelist3.add(new BDtree3(pickX(), pickY(), pickSize(), pickAge()));
-		}
 	}
 
 	public BDlocation getCell(int pX, int pY) {
@@ -115,17 +94,6 @@ public class BDenvironment {
 		return (ArrayList<BDdeer>) deerlist;
 	}
 	
-	public ArrayList<BDtree1> getTree1() {
-		return (ArrayList<BDtree1>) treelist1;
-	}
-	
-	public ArrayList<BDtree2> getTree2() {
-		return (ArrayList<BDtree2>) treelist2;
-	}
-	
-	public ArrayList<BDtree3> getTree3() {
-		return (ArrayList<BDtree3>) treelist3;
-	}
 	
 	
 	private int pickX() {
@@ -402,30 +370,6 @@ public class BDenvironment {
 
 	}
 	
-	public void growTree() {
-		for (Iterator<BDtree1> it = treelist1.iterator(); it.hasNext();) {
-			BDtree1 thistree1 = it.next();
-		    thistree1.getTreeCol();
-		    thistree1.getMySize();
-		    thistree1.getMyAge();
-
-		}
-		for (Iterator<BDtree2> it = treelist2.iterator(); it.hasNext();) {
-			BDtree2 thistree2 = it.next();
-		    thistree2.getTreeCol();
-		    thistree2.getMySize();
-		    thistree2.getMyAge();
-
-		}
-		for (Iterator<BDtree3> it = treelist3.iterator(); it.hasNext();) {
-			BDtree3 thistree3 = it.next();
-		    thistree3.getTreeCol();
-		    thistree3.getMySize();
-		    thistree3.getMyAge();
-
-		}
-		//increment scalers every tick
-	}
 
 	public void step(short[] pPixels, boolean pSwapX, boolean pSwapY) {
 		for (int x = 0; x < widthX; x++) {
@@ -444,18 +388,12 @@ public class BDenvironment {
 				}
 
 				cells[x][y].setCellheight(pPixels[t + u], testing);
-				//				cells = cells[x][y].step(pPixels[t + u], temperature, cells, testing);
 
 			}
 		}
 
-		/*		for (int x = 0; x < agents; x++) {
-			cells = agentlist[x].step(cells);
-		}
-		 */
 		stepCells();
 		stepAgents();
 		stepDeer();
-		growTree();
 	}
 }

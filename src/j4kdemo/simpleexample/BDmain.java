@@ -15,16 +15,21 @@ import javax.swing.JFrame;
 import edu.ufl.digitalworlds.j4k.J4KSDK;
 
 public class BDmain extends J4KSDK {
+	
+	//Software written by Phil Murgatroyd, using the example template provided by Angelos Barmpoutis as part of the 
+	//University of Florida Digital Worlds Institute's J4K Library .
 
 	//counter is used to calculate Frames Per Second at the end
 	int counter=0;
 	//time records the start time
 	long time=0;
 	
-	private static final String FILEPATH = "c:/sandbox/";
+	private static final String FILEPATH = "d:/sandbox/";
 	private static final String TESTFILENAME = "BDlandscape002.jpg";
 
 	private static final int TOTALTICKS = 5000;
+	
+	//Total number of milliseconds before self-quitting
 	private static final int TOTALMILLISECS = 300000;
 
 	// These set the resolution that the sensor uses. Can either be 640x480 or 320x240
@@ -34,10 +39,6 @@ public class BDmain extends J4KSDK {
 	static final int AGENTS = 100;
 	//Number of deers
 	static final int DEERS = 75;
-	//Number of trees
-	static final int TREES1 = 1000;
-	static final int TREES2 = 1000;
-	static final int TREES3 = 1000;
 	//thisframe is the object that holds everything that does anything
 	static BDframe thisframe;
 	//If TESTING is true then instead of looking for kinect data it will use test data
@@ -82,7 +83,7 @@ public class BDmain extends J4KSDK {
 		}
 		
 		//Setting up thisframe, whose behaviour is specified in RSj4kFrame
-		thisframe = new BDframe(DEPTHX, DEPTHY, AGENTS, DEERS, TREES1, TREES2, TREES3, TESTING);
+		thisframe = new BDframe(DEPTHX, DEPTHY, AGENTS, DEERS, TESTING);
 		thisframe.setUndecorated(true);
 		thisframe.setVisible(true);
 		thisframe.setExtendedState(Frame.MAXIMIZED_BOTH);

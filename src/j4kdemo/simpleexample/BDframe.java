@@ -32,24 +32,20 @@ public class BDframe extends JFrame implements KeyListener {
 	private static final int CELLWIDTH = 4;
 	private static final int CELLHEIGHT = 4;
 	
-	private static final int T1AGEMX = 300;
-	private static final int T2AGEMX = 400;
-	private static final int T3AGEMX = 500;
-	
 	private int j = 0, i = 0, a = 0, b = 0, c = 0;
 	private static final int MAXX = 1280; //1280
 	private static final int MAXY = 960; //960
 	//Actual width and height of display
-	private static int widthX, heightY, agents, deers, trees1, trees2, trees3, counter;
+	private static int widthX, heightY, agents, deers, counter;
 	private static BDenvironment theenvironment;
 	private static final boolean SWAPX = true;
 	private static final boolean SWAPY = false;
-	private static boolean testing, heightmode, treemode, agentmode, alreadyExecuted;
+	private static boolean testing, heightmode, agentmode, alreadyExecuted;
 
 	public Graphics GClass;
 	
 	//Constructor class, specifies data on startup. Initialises frame and sets arrays to 0
-	public BDframe(int pwidthX, int pheightY, int pAgents, int pDeers, int pTrees1,int pTrees2,int pTrees3, boolean pTesting) {
+	public BDframe(int pwidthX, int pheightY, int pAgents, int pDeers, boolean pTesting) {
 
 		//Calls superclass constructor. Doesn't do anything
 		super("RSj4kFrame");
@@ -59,16 +55,12 @@ public class BDframe extends JFrame implements KeyListener {
 		heightY = pheightY;
 		agents = pAgents;
 		deers = pDeers;
-		trees1 = pTrees1;
-		trees2 = pTrees2;
-		trees3 = pTrees3;
 		testing = pTesting;
 		heightmode = false;
-		treemode = false;
 		agentmode = true;
 		counter = 0;
 
-		theenvironment = new BDenvironment(widthX, heightY, agents, deers, trees1, trees2, trees3, testing);
+		theenvironment = new BDenvironment(widthX, heightY, agents, deers, testing);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		int boundx, boundy;
@@ -104,14 +96,6 @@ public class BDframe extends JFrame implements KeyListener {
 			heightmode = false;
 		} else {
 			heightmode = true;
-		}
-	}
-	
-	public void toggleTrees() {
-		if (treemode) {
-			treemode = false;
-		} else {
-			treemode = true;
 		}
 	}
 	
@@ -159,11 +143,6 @@ public class BDframe extends JFrame implements KeyListener {
 			break;
 		case 'h':
 			toggleHeight();
-			break;
-		case 't': //to toggle tree growth mode, (height mode + trees)
-			toggleTrees();
-			toggleHeight();
-			toggleAgents();
 			break;
 		}
 	}
@@ -219,59 +198,6 @@ public class BDframe extends JFrame implements KeyListener {
 				}
 			}
 			
-			//Go through list of trees
-			for (BDtree1 thistr : theenvironment.getTree1()) {
-				
-				if (treemode) {
-					a = thistr.getMyAge() + j;
-					if (j <= 500 & a < T1AGEMX) {
-						// change in height and width based on 100 tick change
-						// int height = (thistr.getmySize)
-						int height = (thistr.getMySize() * (i + 2));
-						// e circle radius which is subtracted from x and y during redraw in order for circle to remain centered 
-						int e = (height / 2);
-						g2.setPaint(thistr.getTreeCol());
-						//redraws oval based on change in growth
-						g2.fillOval((thistr.getMyX() * CELLHEIGHT) - e , (thistr.getMyY() * CELLHEIGHT) - e, (height), (height));
-						//g2.drawImage(image, thisdr.getMyX(), thisdr.getMyY(), this);
-					}
-				}
-			}
-			
-		
-			for (BDtree2 thistr : theenvironment.getTree2()) {
-				
-				if (treemode) {
-					b = thistr.getMyAge() + j;
-					if (j <= 500 & b < T2AGEMX) {
-						// change in height and width based on 100 tick change
-						int height = (thistr.getMySize() * (i + 2));
-						// e circle radius which is subtracted from x and y during redraw in order for circle to remain centered 
-						int e = (height / 2);
-						g2.setPaint(thistr.getTreeCol());
-						//redraws oval based on change in growth
-						g2.fillOval((thistr.getMyX() * CELLHEIGHT) - e , (thistr.getMyY() * CELLHEIGHT) - e, (height), (height));
-						//g2.drawImage(image, thisdr.getMyX(), thisdr.getMyY(), this);
-					}
-				}
-			}
-			
-			for (BDtree3 thistr : theenvironment.getTree3()) {
-	
-				if (treemode) {
-					c = thistr.getMyAge() + j;
-					if (j <= 500 & c <= T3AGEMX) {
-						// change in height and width based on 100 tick change
-						int height = (thistr.getMySize() * (i + 2));
-						// e circle radius which is subtracted from x and y during redraw in order for circle to remain centered 
-						int e = (height / 2);
-						g2.setPaint(thistr.getTreeCol());
-						//redraws oval based on change in growth
-						g2.fillOval((thistr.getMyX() * CELLHEIGHT) - e , (thistr.getMyY() * CELLHEIGHT) - e, (height), (height));
-						//g2.drawImage(image, thisdr.getMyX(), thisdr.getMyY(), this);
-					}
-				}
-			}
 			j++;
 		}
 	}
